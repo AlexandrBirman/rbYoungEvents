@@ -8,13 +8,16 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HhScraperFromAPI extends BaseScruper {
+public class TimePadScraperFromAPI extends BaseScruper  {
 
-    private static String url = "https://api.hh.ru/vacancies?employment=probation";
+    private String url = "https://api.timepad.ru/v1/events.json?limit=100";
+
 
     @Override
     public List<String> getData() throws IOException {
@@ -25,24 +28,17 @@ public class HhScraperFromAPI extends BaseScruper {
     public List<String> getReferences(String content) throws IOException {
         List<String> response = new ArrayList<>();
 
-        JsonNode arrNode = new ObjectMapper().readTree(content).get("items");
+        JsonNode arrNode = new ObjectMapper().readTree(content).get("values");
 
         if (arrNode.isArray()) {
             for (final JsonNode objNode : arrNode) {
-                response.add(objNode.get("alternate_url").toString());
+                response.add(objNode.get("url").toString());
             }
         }
 
         return  response;
     }
 
-
-
-    public static String getUrl() {
-        return url;
-    }
-
-    public static void setUrl(String url) {
-        HhScraperFromAPI.url = url;
-    }
 }
+
+
