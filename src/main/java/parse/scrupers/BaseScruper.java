@@ -7,7 +7,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
-public abstract  class BaseScruper {
+public abstract class BaseScruper {
 
     protected String getJsonString(String url) throws IOException {
         String urlString = url;

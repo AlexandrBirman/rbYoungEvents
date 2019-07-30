@@ -16,7 +16,9 @@ import java.util.List;
 
 public class TimePadScraperFromAPI extends BaseScruper  {
 
-    private String url = "https://api.timepad.ru/v1/events.json?limit=100";
+    private int limit = 100;
+
+    private String url = "https://api.timepad.ru/v1/events.json?limit=" + limit;
 
 
     @Override
