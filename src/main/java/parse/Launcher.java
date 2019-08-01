@@ -7,7 +7,9 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class Launcher extends TimerTask{
+
     private static long period = 30*1000;
+
     public static void main(String[] args) throws IOException {
         TimerTask starter = new Launcher();
 
@@ -57,6 +59,7 @@ public class Launcher extends TimerTask{
         storage.add(new TaglineEventsScruperStandart());
         storage.add(new EventsYandexScruperStandart());
         storage.add(new SkScruperStandart());
+        storage.add(new LeaderIdScruperStandart());
 
         return storage;
     }
