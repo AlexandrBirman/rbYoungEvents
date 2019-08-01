@@ -1,9 +1,6 @@
 package parse;
 
-import parse.scrupers.BaseScruper;
-import parse.scrupers.HhScraperFromAPI;
-import parse.scrupers.ITeventsScraperStandart;
-import parse.scrupers.TimePadScraperFromAPI;
+import parse.scrupers.*;
 
 import java.io.IOException;
 import java.util.*;
@@ -57,6 +54,8 @@ public class Launcher extends TimerTask{
         storage.add(new HhScraperFromAPI());
         storage.add(new TimePadScraperFromAPI());
         storage.add(new ITeventsScraperStandart());
+        storage.add(new TaglineEventsScruperStandart());
+        storage.add(new EventsYandexScruperStandart());
 
         return storage;
     }
