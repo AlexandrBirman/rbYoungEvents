@@ -21,7 +21,7 @@ public class TaglineEventsScruperStandart extends BaseScruper {
 
         Elements elements = document.select("div.event__body");
         Elements links = elements.select("a[href]");
-        for (int i = 1; i < elements.size(); i++) {
+        for (int i = 0; i < elements.size(); i++) {
             //System.out.println((links.get(i).attr("abs:href")));
             data.add((links.get(i).attr("abs:href")));
         }

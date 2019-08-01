@@ -56,6 +56,7 @@ public class Launcher extends TimerTask{
         storage.add(new ITeventsScraperStandart());
         storage.add(new TaglineEventsScruperStandart());
         storage.add(new EventsYandexScruperStandart());
+        storage.add(new SkScruperStandart());
 
         return storage;
     }
