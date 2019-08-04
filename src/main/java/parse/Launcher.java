@@ -53,14 +53,15 @@ public class Launcher extends TimerTask{
 
     private List<BaseScruper> getScrupers(){
         List<BaseScruper> storage = new ArrayList<>();
-        storage.add(new HhScraperFromAPI());
-        storage.add(new TimePadScraperFromAPI());
-        storage.add(new ITeventsScraperStandart());
-        storage.add(new TaglineEventsScruperStandart());
-        storage.add(new EventsYandexScruperStandart());
-        storage.add(new SkScruperStandart());
-        storage.add(new LeaderIdScruperStandart());
-        storage.add(new IngariaStartupScraperStandart());
+       // storage.add(new HhScraperFromAPI());
+       // storage.add(new TimePadScraperFromAPI());
+       // storage.add(new ITeventsScraperStandart());
+       // storage.add(new TaglineEventsScruperStandart());
+        //storage.add(new EventsYandexScruperStandart());
+        //storage.add(new SkScruperStandart());
+       // storage.add(new LeaderIdScruperStandart());
+        //storage.add(new IngariaStartupScraperStandart());
+        storage.add(new TcehScraperStandart());
 
         return storage;
     }
