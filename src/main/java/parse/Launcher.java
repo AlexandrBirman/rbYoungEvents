@@ -5,7 +5,7 @@ import parse.scrupers.*;
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-
+// пока нет сортировки по России
 public class Launcher extends TimerTask{
 
     private static long period = 30*1000;
@@ -64,6 +64,7 @@ public class Launcher extends TimerTask{
         //storage.add(new TcehScraperStandart());
         //storage.add(new DigitalLoctoberScruperStandart());
         //storage.add(new RunetIdScruperStandart());
+        //storage.add(new HackatonIoScruperStandart() );
 
         return storage;
     }
