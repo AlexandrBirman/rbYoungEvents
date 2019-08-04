@@ -63,6 +63,7 @@ public class Launcher extends TimerTask{
         //storage.add(new IngariaStartupScraperStandart());
         //storage.add(new TcehScraperStandart());
         //storage.add(new DigitalLoctoberScruperStandart());
+        //storage.add(new RunetIdScruperStandart());
 
         return storage;
     }
