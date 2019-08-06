@@ -1,4 +1,6 @@
-package parse.scrupers;
+package parse.scrupers.standart;
+
+import parse.scrupers.BaseScruper;
 
 import java.io.IOException;
 import java.util.List;
@@ -7,7 +9,7 @@ public class TcehScraperStandart extends BaseScruper {
     private static String url = "https://tceh.com/events/";
 
     @Override
-    List<String> getReferences(String content) throws IOException {
+    protected List<String> getReferences(String content) throws IOException {
         return getFromHTML(url, content);
     }
 

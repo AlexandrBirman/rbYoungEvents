@@ -1,18 +1,19 @@
-package parse.scrupers;
+package parse.scrupers.standart;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import parse.scrupers.BaseScruper;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+// трижды дублирует ссылки
 public class LeaderIdScruperStandart extends BaseScruper {
     private static String url = "https://leader-id.ru/events/";
 
     @Override
-    List<String> getReferences(String content) throws IOException { // пока только одна страница парситься
+    protected List<String> getReferences(String content) throws IOException { // пока только одна страница парситься
         List<String> data = new ArrayList<>();
 
         Document document = Jsoup.connect(url)

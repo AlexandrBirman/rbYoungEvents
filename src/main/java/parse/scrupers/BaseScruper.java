@@ -49,15 +49,17 @@ public abstract class BaseScruper {
         Elements elements = document.select("div." + tag);
        // Elements elements = document.getElementsByClass("div." + tag);
         Elements links = elements.select("a[href]");
+        //data.add(document.toString());
         for (int i = 0; i < elements.size(); i++) {
             //System.out.println((links.get(i).attr("abs:href")));
             data.add((links.get(i).attr("abs:href")));
+
         }
 
         return data;
     }
 
-    abstract List<String> getReferences(String content) throws IOException;
+    protected abstract List<String> getReferences(String content) throws IOException;
 
     public abstract List<String> getData() throws IOException;
 

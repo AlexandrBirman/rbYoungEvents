@@ -1,14 +1,10 @@
-package parse.scrupers;
+package parse.scrupers.fromAPI;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import parse.interfaces.HasAPI;
+import parse.scrupers.BaseScruper;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +14,7 @@ public class HhScraperFromAPI extends BaseScruper {
 
     @Override
     public List<String> getData() throws IOException {
-        return getReferences(this.getJsonString(url));
+        return getReferences(getJsonString(url));
     }
 
     @Override
@@ -26,10 +22,15 @@ public class HhScraperFromAPI extends BaseScruper {
         List<String> response = new ArrayList<>();
 
         JsonNode arrNode = new ObjectMapper().readTree(content).get("items");
+        StringBuilder builder = new StringBuilder();
 
         if (arrNode.isArray()) {
             for (final JsonNode objNode : arrNode) {
-                response.add(objNode.get("alternate_url").toString());
+                builder.setLength(0);
+                builder.append(objNode.get("alternate_url").toString() + "\n");
+                builder.append(objNode.get("name").toString() + "\n");
+                builder.append(objNode.get("area").get("name").toString());
+                response.add(builder.toString());
             }
         }
 
