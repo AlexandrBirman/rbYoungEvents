@@ -61,7 +61,7 @@ public class Launcher extends TimerTask{
         List<BaseScruper> storage = new ArrayList<>();
         storage.add(new HhScraperFromAPI()); // стажировки | достает ссылку + название + город | все раздельно
         storage.add(new TimePadScraperFromAPI()); // мероприятия по теме | Бизнес | IT и интернет |  название мероприятия | все раздельно
-        storage.add(new ITeventsScraperStandart()); // достает ссылку + область + название мероприятия + (дата + город вместе)
+        storage.add(new ITeventsScraperStandart()); // достает ссылку + область + название мероприятия | раздельно | (дата + город вместе)
         storage.add(new TaglineEventsScruperStandart()); // ссылки + вся инфа в одну строку
         //storage.add(new EventsYandexScruperStandart());
         //storage.add(new SkScruperStandart());
@@ -73,7 +73,7 @@ public class Launcher extends TimerTask{
         //storage.add(new HackatonIoScruperStandart());
         //storage.add(new NetologyScruperStandart()); //не доделан
         //storage.add(new MskItStepScruperStandart());
-        storage.add(new UniversariumScruperStandart()); // курсы | достает ссылку + область + название
+        storage.add(new UniversariumScruperStandart()); // курсы | достает ссылку + область + название | все раздельно
         //storage.add(new BritishDesignScruperStandart()); // не работает
         return storage;
     }
