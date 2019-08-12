@@ -32,7 +32,7 @@ public class Launcher extends TimerTask{
         timer.cancel();
         System.out.println("TimerTask прекращена");
         try {
-            Thread.sleep(30000);
+            Thread.sleep(30*60*000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -59,11 +59,11 @@ public class Launcher extends TimerTask{
 
     private List<BaseScruper> getScrupers(){
         List<BaseScruper> storage = new ArrayList<>();
-        storage.add(new HhScraperFromAPI()); // стажировки | достает ссылку + название + город | все раздельно
-        storage.add(new TimePadScraperFromAPI()); // мероприятия по теме | Бизнес | IT и интернет |  название мероприятия | все раздельно
-        storage.add(new ITeventsScraperStandart()); // достает ссылку + область + название мероприятия | раздельно | (дата + город вместе)
-        storage.add(new TaglineEventsScruperStandart()); // ссылки + вся инфа в одну строку
-        //storage.add(new EventsYandexScruperStandart());
+        //storage.add(new HhScraperFromAPI()); // стажировки | достает ссылку + название + город | все раздельно
+        //storage.add(new TimePadScraperFromAPI()); // мероприятия по теме | Бизнес | IT и интернет |  название мероприятия | все раздельно
+        //storage.add(new ITeventsScraperStandart()); //  ссылка + область + название мероприятия | раздельно | (дата + город вместе)
+        storage.add(new TaglineEventsScruperStandart()); // ссылка + вся инфа в одну строку
+        //storage.add(new EventsYandexScruperStandart()); // ссылка + название + дата | все раздельно (достает только активные мероприятия на которые открыта регистрация)
         //storage.add(new SkScruperStandart());
         //storage.add(new LeaderIdScruperStandart()); //дублирует ссылки три раза
         //storage.add(new IngariaStartupScraperStandart());
@@ -73,7 +73,7 @@ public class Launcher extends TimerTask{
         //storage.add(new HackatonIoScruperStandart());
         //storage.add(new NetologyScruperStandart()); //не доделан
         //storage.add(new MskItStepScruperStandart());
-        storage.add(new UniversariumScruperStandart()); // курсы | достает ссылку + область + название | все раздельно
+        //storage.add(new UniversariumScruperStandart()); // курсы | достает ссылку + область + название | все раздельно
         //storage.add(new BritishDesignScruperStandart()); // не работает
         return storage;
     }

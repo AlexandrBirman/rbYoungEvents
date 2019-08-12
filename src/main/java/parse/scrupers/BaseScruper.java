@@ -14,7 +14,13 @@ import java.util.List;
 
 public abstract class BaseScruper {
 
-    protected String getJsonString(String url) throws IOException {
+    public static StringBuilder builder;
+
+    public BaseScruper() {
+        builder = new StringBuilder();
+    }
+
+    protected  String getJsonString(String url) throws IOException {
         String urlString = url;
         URL urlObject = new URL(urlString);
 
