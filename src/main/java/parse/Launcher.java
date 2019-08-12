@@ -62,7 +62,7 @@ public class Launcher extends TimerTask{
         //storage.add(new HhScraperFromAPI()); // стажировки | достает ссылку + название + город | все раздельно
         //storage.add(new TimePadScraperFromAPI()); // мероприятия по теме | Бизнес | IT и интернет |  название мероприятия | все раздельно
         //storage.add(new ITeventsScraperStandart()); //  ссылка + область + название мероприятия | раздельно | (дата + город вместе)
-        storage.add(new TaglineEventsScruperStandart()); // ссылка + вся инфа в одну строку
+        //storage.add(new TaglineEventsScruperStandart()); // ссылка + название + дата + город + цена(если есть) | все раздельно (нет области)
         //storage.add(new EventsYandexScruperStandart()); // ссылка + название + дата | все раздельно (достает только активные мероприятия на которые открыта регистрация)
         //storage.add(new SkScruperStandart());
         //storage.add(new LeaderIdScruperStandart()); //дублирует ссылки три раза
