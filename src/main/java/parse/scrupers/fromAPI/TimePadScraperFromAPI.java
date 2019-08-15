@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import parse.interfaces.HasAPI;
 import parse.scrupers.BaseScruper;
+import util.StringsUtil;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -37,9 +38,9 @@ public class TimePadScraperFromAPI extends BaseScruper {
         if (arrNode.isArray()) {
             for (final JsonNode objNode : arrNode) {
                 builder.setLength(0);
-                builder.append(objNode.get("url").toString() + "\n");
+                builder.append(StringsUtil.deleteCommos(objNode.get("url").toString()) + "\n");
                // builder.append(objNode.get("categories").get("name").toString() + "\n");
-                builder.append(objNode.get("name").toString() + "\n");
+                builder.append(StringsUtil.deleteCommos(objNode.get("name").toString()) + "\n");
                 //builder.append(objNode.get("area").get("name").toString());
                 response.add(builder.toString());
             }

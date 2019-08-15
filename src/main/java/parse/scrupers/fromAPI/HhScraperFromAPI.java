@@ -2,7 +2,9 @@ package parse.scrupers.fromAPI;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.jsoup.helper.StringUtil;
 import parse.scrupers.BaseScruper;
+import util.StringsUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,9 +29,9 @@ public class HhScraperFromAPI extends BaseScruper {
         if (arrNode.isArray()) {
             for (final JsonNode objNode : arrNode) {
                 builder.setLength(0);
-                builder.append(objNode.get("alternate_url").toString() + "\n");
-                builder.append(objNode.get("name").toString() + "\n");
-                builder.append(objNode.get("area").get("name").toString());
+                builder.append(StringsUtil.deleteCommos(objNode.get("alternate_url").toString()) + "\n");
+                builder.append(StringsUtil.deleteCommos(objNode.get("name").toString()) + "\n");
+                builder.append(StringsUtil.deleteCommos(objNode.get("area").get("name").toString()));
                 response.add(builder.toString());
             }
         }

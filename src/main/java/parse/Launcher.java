@@ -4,9 +4,7 @@ import parse.scrupers.*;
 import parse.scrupers.fromAPI.HhScraperFromAPI;
 import parse.scrupers.fromAPI.TimePadScraperFromAPI;
 import parse.scrupers.fromAPI.UniversariumScruperStandart;
-import parse.scrupers.standart.EventsYandexScruperStandart;
-import parse.scrupers.standart.ITeventsScraperStandart;
-import parse.scrupers.standart.TaglineEventsScruperStandart;
+import parse.scrupers.standart.*;
 
 import java.io.IOException;
 import java.util.*;
@@ -59,21 +57,21 @@ public class Launcher extends TimerTask{
 
     private List<BaseScruper> getScrupers(){
         List<BaseScruper> storage = new ArrayList<>();
-        //storage.add(new HhScraperFromAPI()); // стажировки | достает ссылку + название + город | все раздельно
-        //storage.add(new TimePadScraperFromAPI()); // мероприятия по теме | Бизнес | IT и интернет |  название мероприятия | все раздельно
+        //storage.add(new HhScraperFromAPI()); // стажировки | достает ссылку + название + город | все раздельно без лишних кавычек
+        //storage.add(new TimePadScraperFromAPI()); // мероприятия по теме | Бизнес | IT и интернет |  название мероприятия | все раздельно без лишних кавычек
         //storage.add(new ITeventsScraperStandart()); //  ссылка + область + название мероприятия | раздельно | (дата + город вместе)
-        //storage.add(new TaglineEventsScruperStandart()); // ссылка + название + дата + город + цена(если есть) | все раздельно (нет области)
+        //storage.add(new TaglineEventsScruperStandart()); // ссылка + название + дата + город + цена(если есть) | все раздельно (нет темы)
         //storage.add(new EventsYandexScruperStandart()); // ссылка + название + дата | все раздельно (достает только активные мероприятия на которые открыта регистрация)
-        //storage.add(new SkScruperStandart());
-        //storage.add(new LeaderIdScruperStandart()); //дублирует ссылки три раза
-        //storage.add(new IngariaStartupScraperStandart());
+        //storage.add(new SkScruperStandart()); //работает не правильно, пока не знаю как исправить
+        //storage.add(new LeaderIdScruperStandart()); // работает неправильно, пока не знаю как исправить
+        storage.add(new IngariaStartupScraperStandart());
         //storage.add(new TcehScraperStandart());
         //storage.add(new DigitalLoctoberScruperStandart());
         //storage.add(new RunetIdScruperStandart());
         //storage.add(new HackatonIoScruperStandart());
         //storage.add(new NetologyScruperStandart()); //не доделан
         //storage.add(new MskItStepScruperStandart());
-        //storage.add(new UniversariumScruperStandart()); // курсы | достает ссылку + область + название | все раздельно
+        //storage.add(new UniversariumScruperStandart()); // курсы | достает ссылку + область + название | все раздельно без лишних кавычек
         //storage.add(new BritishDesignScruperStandart()); // не работает
         return storage;
     }

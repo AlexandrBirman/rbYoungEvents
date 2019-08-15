@@ -3,6 +3,7 @@ package parse.scrupers.fromAPI;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import parse.scrupers.BaseScruper;
+import util.StringsUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,9 +25,9 @@ public class UniversariumScruperStandart extends BaseScruper {
         if (arrNode.isArray()) {
             for (final JsonNode objNode : arrNode) {
                 builder.setLength(0);
-                builder.append(buildURL + objNode.get("id").toString() + "\n");
-                builder.append((objNode.get("category").toString() + "\n"));
-                builder.append("Курс: " + (objNode.get("title").toString() + "\n"));
+                builder.append(StringsUtil.deleteCommos(buildURL + objNode.get("id").toString()) + "\n");
+                builder.append(StringsUtil.deleteCommos(objNode.get("category").toString()) + "\n");
+                builder.append("Курс: " + StringsUtil.deleteCommos(objNode.get("title").toString()) + "\n");
 
                 //builder.append((objNode.get("purpose").toString() + "\n"));
                 response.add(builder.toString());

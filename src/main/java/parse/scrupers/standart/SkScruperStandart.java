@@ -20,10 +20,13 @@ public class SkScruperStandart extends BaseScruper {
                 .referrer("http://www.google.com")
                 .get();
 
-        Elements elements = document.getElementsByClass("entity-title");
+        Elements elements = document.select("ul.attribute-list");
         Elements links = elements.select("a[href]");
         for (int i = 0; i < elements.size(); i++) {
+            builder.setLength(0);
             //System.out.println((links.get(i).attr("abs:href")));
+            builder.append(elements.get(i).select("a[href]").attr("abs:href") + "\n" + elements.get(i).text());
+
             data.add((links.get(i).attr("abs:href")));
         }
         return data;
