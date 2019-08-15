@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import parse.interfaces.HasAPI;
 import parse.scrupers.BaseScruper;
+import parse.scrupers.ScruperEvent;
 import util.StringsUtil;
 
 import java.io.BufferedReader;
@@ -24,13 +25,13 @@ public class TimePadScraperFromAPI extends BaseScruper {
 
 
     @Override
-    public List<String> getData() throws IOException {
+    public List<ScruperEvent> getData() throws IOException {
         return getReferences(getJsonString(url));
     }
 
     @Override
-    public List<String> getReferences(String content) throws IOException {
-        List<String> response = new ArrayList<>();
+    public List<ScruperEvent> getReferences(String content) throws IOException {
+        List<ScruperEvent> response = new ArrayList<>();
 
         JsonNode arrNode = new ObjectMapper().readTree(content).get("values");
         StringBuilder builder = new StringBuilder();
@@ -38,11 +39,14 @@ public class TimePadScraperFromAPI extends BaseScruper {
         if (arrNode.isArray()) {
             for (final JsonNode objNode : arrNode) {
                 builder.setLength(0);
-                builder.append(StringsUtil.deleteCommos(objNode.get("url").toString()) + "\n");
-               // builder.append(objNode.get("categories").get("name").toString() + "\n");
-                builder.append(StringsUtil.deleteCommos(objNode.get("name").toString()) + "\n");
+                event = new ScruperEvent();
+                //builder.append(StringsUtil.deleteCommos(objNode.get("url").toString()) + "\n");
+                //builder.append(objNode.get("categories").get("name").toString() + "\n");
+                event.setUrl(StringsUtil.deleteCommos(objNode.get("url").toString()));
+                //builder.append(StringsUtil.deleteCommos(objNode.get("name").toString()) + "\n");
+                event.setName(StringsUtil.deleteCommos(objNode.get("name").toString()));
                 //builder.append(objNode.get("area").get("name").toString());
-                response.add(builder.toString());
+                response.add(event);
             }
         }
 

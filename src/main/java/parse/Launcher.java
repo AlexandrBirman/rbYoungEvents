@@ -42,9 +42,9 @@ public class Launcher extends TimerTask{
 
         for (BaseScruper baseScruper : getScrupers()) {
             try {
-                for (String url : baseScruper.getData()) {
+                for (ScruperEvent data : baseScruper.getData()) {
                     // здесь выгрузка ссылок в базу, а не в консоль
-                    System.out.println(url);
+                    System.out.println(data.toString());
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -62,16 +62,16 @@ public class Launcher extends TimerTask{
         //storage.add(new ITeventsScraperStandart()); //  ссылка + область + название мероприятия | раздельно | (дата + город вместе)
         //storage.add(new TaglineEventsScruperStandart()); // ссылка + название + дата + город + цена(если есть) | все раздельно (нет темы)
         //storage.add(new EventsYandexScruperStandart()); // ссылка + название + дата | все раздельно (достает только активные мероприятия на которые открыта регистрация)
-        //storage.add(new SkScruperStandart()); //работает не правильно, пока не знаю как исправить
+        //storage.add(new SkScruperStandart()); //работает неправильно, пока не знаю как исправить
         //storage.add(new LeaderIdScruperStandart()); // работает неправильно, пока не знаю как исправить
-        storage.add(new IngariaStartupScraperStandart());
+        //storage.add(new IngariaStartupScraperStandart()); // ссылка + название + дата | все раздельно
         //storage.add(new TcehScraperStandart());
         //storage.add(new DigitalLoctoberScruperStandart());
         //storage.add(new RunetIdScruperStandart());
         //storage.add(new HackatonIoScruperStandart());
         //storage.add(new NetologyScruperStandart()); //не доделан
         //storage.add(new MskItStepScruperStandart());
-        //storage.add(new UniversariumScruperStandart()); // курсы | достает ссылку + область + название | все раздельно без лишних кавычек
+        storage.add(new UniversariumScruperStandart()); // курсы | достает ссылку + область + название | все раздельно без лишних кавычек
         //storage.add(new BritishDesignScruperStandart()); // не работает
         return storage;
     }

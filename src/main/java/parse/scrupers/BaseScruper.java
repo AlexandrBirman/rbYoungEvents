@@ -14,13 +14,14 @@ import java.util.List;
 
 public abstract class BaseScruper {
 
-    public static StringBuilder builder;
+    protected static StringBuilder builder;
+    protected static ScruperEvent event;
 
     public BaseScruper() {
         builder = new StringBuilder();
     }
 
-    protected  String getJsonString(String url) throws IOException {
+    protected String getJsonString(String url) throws IOException {
         String urlString = url;
         URL urlObject = new URL(urlString);
 
@@ -44,8 +45,8 @@ public abstract class BaseScruper {
         return response.toString();
     }
 
-    protected List<String> getFromHTML(String url, String tag) throws IOException {
-        List<String> data = new ArrayList<>();
+    protected List<ScruperEvent> getFromHTML(String url, String tag) throws IOException {
+        List<ScruperEvent> data = new ArrayList<>();
 
         Document document = Jsoup.connect(url)
                 .userAgent("Chrome/4.0.249.0 Safari/532.5")
@@ -58,15 +59,16 @@ public abstract class BaseScruper {
         //data.add(document.toString());
         for (int i = 0; i < elements.size(); i++) {
             //System.out.println((links.get(i).attr("abs:href")));
-            data.add((links.get(i).attr("abs:href")));
+
+            data.add(new ScruperEvent((links.get(i).attr("abs:href"))));
 
         }
 
         return data;
     }
 
-    protected abstract List<String> getReferences(String content) throws IOException;
+    protected abstract List<ScruperEvent> getReferences(String content) throws IOException;
 
-    public abstract List<String> getData() throws IOException;
+    public abstract List<ScruperEvent> getData() throws IOException;
 
 }

@@ -4,6 +4,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import parse.scrupers.BaseScruper;
+import parse.scrupers.ScruperEvent;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,26 +21,26 @@ public class NetologyScruperStandart extends BaseScruper {
 
 
     @Override
-    protected List<String> getReferences(String content) throws IOException {
+    protected List<ScruperEvent> getReferences(String content) throws IOException {
         return null;
     }
 
-    private List<String> sum() throws IOException {
+    private List<ScruperEvent> sum() throws IOException {
         List<String> data = new ArrayList<>();
 
-        data.addAll(getFromHTML(managementUrl, "direction-module-content-2UwHl8"));
+        //data.addAll(getFromHTML(managementUrl, "direction-module-content-2UwHl8"));
 
 
-        return data;
+        return null;
     }
 
     @Override
-    public List<String> getData() throws IOException {
+    public List<ScruperEvent> getData() throws IOException {
         return sum();
     }
 
     @Override
-    protected List<String> getFromHTML(String url, String tag) throws IOException {
+    protected List<ScruperEvent> getFromHTML(String url, String tag) throws IOException {
         List<String> data = new ArrayList<>();
 
         Document document = Jsoup.connect(url)
@@ -55,6 +56,6 @@ public class NetologyScruperStandart extends BaseScruper {
             data.add((links.get(i).attr("abs:href")));
         }
 
-        return data;
+        return null;
     }
 }
