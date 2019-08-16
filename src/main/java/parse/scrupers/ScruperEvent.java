@@ -7,6 +7,15 @@ public class ScruperEvent {
     private String location;
     private String price;
     private String category;
+    private String format;
+
+    public String getFormat() {
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
+    }
 
     public String getDate() {
         return date;
@@ -83,6 +92,9 @@ public class ScruperEvent {
 
         if (getCategory() != null)
             builder.append("\n" + getCategory());
+
+        if (getFormat() != null)
+            builder.append("\n" + getFormat());
 
         return builder.toString();
     }
