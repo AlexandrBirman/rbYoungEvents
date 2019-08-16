@@ -67,8 +67,8 @@ public class Launcher extends TimerTask{
         //storage.add(new LeaderIdScruperStandart()); // работает неправильно, пока не знаю как исправить
         //storage.add(new IngariaStartupScraperStandart()); // ссылка + название + дата
         //storage.add(new TcehScraperStandart()); // ссылка + название + дата + категория
-        storage.add(new DigitalLoctoberScruperStandart());
-        //storage.add(new RunetIdScruperStandart());
+        //storage.add(new DigitalLoctoberScruperStandart()); //ссылка + название + дата + категория + формат
+        storage.add(new RunetIdScruperStandart());
         //storage.add(new HackatonIoScruperStandart());
         //storage.add(new NetologyScruperStandart()); //не доделан
         //storage.add(new MskItStepScruperStandart());
