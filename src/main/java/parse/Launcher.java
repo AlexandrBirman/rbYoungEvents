@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class Launcher extends TimerTask{
 
     private static long period = 60*60*24*1000;
+    //private static long stopPoint =
 
     public static void main(String[] args) throws IOException {
         TimerTask starter = new Launcher();
@@ -57,21 +58,21 @@ public class Launcher extends TimerTask{
 
     private List<BaseScruper> getScrupers(){
         List<BaseScruper> storage = new ArrayList<>();
-        //storage.add(new HhScraperFromAPI()); // стажировки | достает ссылку + название + город | все раздельно без лишних кавычек
-        //storage.add(new TimePadScraperFromAPI()); // мероприятия по теме | Бизнес | IT и интернет |  название мероприятия | все раздельно без лишних кавычек
-        //storage.add(new ITeventsScraperStandart()); //  ссылка + область + название мероприятия | раздельно | (дата + город вместе)
-        //storage.add(new TaglineEventsScruperStandart()); // ссылка + название + дата + город + цена(если есть) | все раздельно (нет темы)
-        //storage.add(new EventsYandexScruperStandart()); // ссылка + название + дата | все раздельно (достает только активные мероприятия на которые открыта регистрация)
+        //storage.add(new HhScraperFromAPI()); // стажировки | достает ссылку + название + город
+        //storage.add(new TimePadScraperFromAPI()); // мероприятия по теме | Бизнес | IT и интернет |  название мероприятия
+        //storage.add(new ITeventsScraperStandart()); //  ссылка + область + название мероприятия | (дата + город вместе)
+        //storage.add(new TaglineEventsScruperStandart()); // ссылка + название + дата + город + цена(если есть)
+        //storage.add(new EventsYandexScruperStandart()); // ссылка + название + дата (достает только активные мероприятия на которые открыта регистрация)
         //storage.add(new SkScruperStandart()); //работает неправильно, пока не знаю как исправить
         //storage.add(new LeaderIdScruperStandart()); // работает неправильно, пока не знаю как исправить
-        //storage.add(new IngariaStartupScraperStandart()); // ссылка + название + дата | все раздельно
-        //storage.add(new TcehScraperStandart());
+        //storage.add(new IngariaStartupScraperStandart()); // ссылка + название + дата
+        //storage.add(new TcehScraperStandart()); // ссылка + название + дата + категория
         //storage.add(new DigitalLoctoberScruperStandart());
         //storage.add(new RunetIdScruperStandart());
         //storage.add(new HackatonIoScruperStandart());
         //storage.add(new NetologyScruperStandart()); //не доделан
         //storage.add(new MskItStepScruperStandart());
-        storage.add(new UniversariumScruperStandart()); // курсы | достает ссылку + область + название | все раздельно без лишних кавычек
+        //storage.add(new UniversariumScruperStandart()); // курсы | достает ссылку + область + название | все раздельно без лишних кавычек
         //storage.add(new BritishDesignScruperStandart()); // не работает
         return storage;
     }

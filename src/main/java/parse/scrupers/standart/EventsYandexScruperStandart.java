@@ -25,7 +25,7 @@ public class EventsYandexScruperStandart extends BaseScruper {
         Elements elements = document.select("div.events-calendar__cell-inner");
         //Elements links = elements.select("a[href]"); достает на одну ссылку меньше
 
-        for (int i = 0; i < elements.size() - 1; i++) { // тут вылазит исключение на выхож из массива, пока не понял где собака зарыта
+        for (int i = 0; i < elements.size(); i++) { // тут вылазит исключение на выхож из массива, пока не понял где собака зарыта
             //System.out.println((links.get(i).attr("abs:href")));
             //BaseScruper.builder.setLength(0);
             event = new ScruperEvent();
